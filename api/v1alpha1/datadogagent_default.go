@@ -35,6 +35,7 @@ const (
 	defaultProcessEnabled                         bool   = false
 	defaultMetricsProviderPort                    int32  = 8443
 	defaultClusterChecksEnabled                   bool   = false
+	defaultKubeStateMetricsCore                   bool   = false
 	defaultClusterAgentReplicas                   int32  = 1
 	defaultAgentCanaryReplicas                    int32  = 1
 	defaultClusterChecksRunnerReplicas            int32  = 2
@@ -648,6 +649,10 @@ func DefaultDatadogAgentSpecClusterAgentConfig(config *ClusterAgentConfig) *Clus
 
 	if config.ClusterChecksEnabled == nil {
 		config.ClusterChecksEnabled = NewBoolPointer(defaultClusterChecksEnabled)
+	}
+
+	if config.KubeStateMetricsCoreEnabled == nil {
+		config.KubeStateMetricsCoreEnabled = NewBoolPointer(defaultKubeStateMetricsCore)
 	}
 
 	if config.CollectEvents == nil {

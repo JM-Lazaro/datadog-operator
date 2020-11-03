@@ -268,9 +268,16 @@ func schema__api_v1alpha1_ClusterAgentConfig(ref common.ReferenceCallback) commo
 							Format:      "",
 						},
 					},
+					"kubeStateMetricsCoreEnabled": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Enable this to start the Kubernetes State Metrics Core check.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
 					"collectEvents": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Enables this to start event collection from the kubernetes API ref: https://docs.datadoghq.com/agent/cluster_agent/event_collection/",
+							Description: "Enable this to start event collection from the kubernetes API ref: https://docs.datadoghq.com/agent/cluster_agent/event_collection/",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},
