@@ -69,16 +69,16 @@ type DatadogMonitorStatus struct {
 
 	// ID is the monitor ID generated in Datadog
 	ID                 int `json:"id,omitempty"`
-	// MonitorState overall state of monitor
+	// MonitorState is the overall state of monitor
   	MonitorState       DatadogMonitorState `json:"monitorState,omitempty"`
   	// TriggeredState only includes details for monitor groups that are triggering
   	TriggeredState     []DatadogMonitorTriggeredState `json:"triggeredState,omitempty"` 
-  	// DowntimeStatus
+    // DowntimeStatus defines whether the monitor is downtimed
   	DowntimeStatus     DatadogMonitorDowntimeStatus `json:"downtimeStatus,omitempty"`
-  	// Creator
+    // Creator is the identify of the monitor creator
 	Creator string `json:"creator,omitempty"`
-	// Created
-	Created metav1.Time `json:"created, omitEmpty"`
+	// Created is the time the monitor was created
+	Created metav1.Time `json:"created,omitempty"`
 }
 
 // DatadogMonitorCondition describes the current state of a DatadogMonitor
@@ -139,9 +139,10 @@ const (
 // DatadogMonitorTriggeredState represents the details of a triggering DatadogMonitor
 // The DatadogMonitor is triggering if one of its groups is in Alert, Warn, or No Data
 type DatadogMonitorTriggeredState struct {
-  MonitorGroup          string
-  State                 DatadogMonitorState
-  LastTransitionTime    metav1.Time
+    // MonitorGroup is the name of the triggering group
+    MonitorGroup          string
+    State                 DatadogMonitorState
+    LastTransitionTime    metav1.Time
 }
 
 // DatadogMonitorDowntimeStatus represents the downtime status of a DatadogMonitor
