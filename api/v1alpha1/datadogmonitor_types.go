@@ -70,12 +70,12 @@ type DatadogMonitorStatus struct {
 	// ID is the monitor ID generated in Datadog
 	ID                 int `json:"id,omitempty"`
 	// MonitorState is the overall state of monitor
-  	MonitorState       DatadogMonitorState `json:"monitorState,omitempty"`
-  	// TriggeredState only includes details for monitor groups that are triggering
-  	TriggeredState     []DatadogMonitorTriggeredState `json:"triggeredState,omitempty"` 
-    // DowntimeStatus defines whether the monitor is downtimed
-  	DowntimeStatus     DatadogMonitorDowntimeStatus `json:"downtimeStatus,omitempty"`
-    // Creator is the identify of the monitor creator
+	MonitorState       DatadogMonitorState `json:"monitorState,omitempty"`
+	// TriggeredState only includes details for monitor groups that are triggering
+	TriggeredState     []DatadogMonitorTriggeredState `json:"triggeredState,omitempty"`
+	// DowntimeStatus defines whether the monitor is downtimed
+	DowntimeStatus     DatadogMonitorDowntimeStatus `json:"downtimeStatus,omitempty"`
+	// Creator is the identify of the monitor creator
 	Creator string `json:"creator,omitempty"`
 	// Created is the time the monitor was created
 	Created metav1.Time `json:"created,omitempty"`
@@ -139,16 +139,16 @@ const (
 // DatadogMonitorTriggeredState represents the details of a triggering DatadogMonitor
 // The DatadogMonitor is triggering if one of its groups is in Alert, Warn, or No Data
 type DatadogMonitorTriggeredState struct {
-    // MonitorGroup is the name of the triggering group
-    MonitorGroup          string `json:"monitorGroup,omitempty"`
-    State                 DatadogMonitorState `json:"state,omitempty"`
-    LastTransitionTime    metav1.Time `json:"lastTransitionTime,omitempty"`
+	// MonitorGroup is the name of the triggering group
+	MonitorGroup          string `json:"monitorGroup,omitempty"`
+	State                 DatadogMonitorState `json:"state,omitempty"`
+	LastTransitionTime    metav1.Time `json:"lastTransitionTime,omitempty"`
 }
 
 // DatadogMonitorDowntimeStatus represents the downtime status of a DatadogMonitor
 type DatadogMonitorDowntimeStatus struct {
-    IsDowntimed     bool `json:"isDowntimed,omitempty"`
-    DowntimeID      int `json:"downtimeId,omitempty"`
+	IsDowntimed     bool `json:"isDowntimed,omitempty"`
+	DowntimeID      int `json:"downtimeId,omitempty"`
 }
 
 // DatadogMonitor is the Schema for the datadogmonitor API
