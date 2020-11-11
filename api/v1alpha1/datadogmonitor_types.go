@@ -25,7 +25,7 @@ type DatadogMonitorSpec struct {
 	
 	// Options are the optional parameters of a monitor
 	Options DatadogMonitorOptions `json:"options,omitempty"`
-	}
+}
 
 // DatadogMonitorType defines the type of monitor
 type DatadogMonitorType string
@@ -147,8 +147,8 @@ type DatadogMonitorTriggeredState struct {
 
 // DatadogMonitorDowntimeStatus represents the downtime status of a DatadogMonitor
 type DatadogMonitorDowntimeStatus struct {
-  IsDowntimed     bool `json:"isDowntimed,omitempty"`
-  DowntimeID      int `json:"downtimeId,omitempty"`
+    IsDowntimed     bool `json:"isDowntimed,omitempty"`
+    DowntimeID      int `json:"downtimeId,omitempty"`
 }
 
 // DatadogMonitor is the Schema for the datadogmonitor API
