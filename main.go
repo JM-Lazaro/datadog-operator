@@ -108,19 +108,19 @@ func main() {
 	customSetupEndpoints(pprofActive, mgr)
 
 	// Get some information about Kubernetes version
-	if err := controllers.SetupControllers(mgr, supportExtendedDaemonset); err != nil {
+	if err = controllers.SetupControllers(mgr, supportExtendedDaemonset); err != nil {
 		setupLog.Error(err, "unable to start controllers")
 		os.Exit(1)
 	}
 
-	if err = (&controllers.DatadogMonitorReconciler{
-		Client: mgr.GetClient(),
-		Log:    ctrl.Log.WithName("controllers").WithName("DatadogMonitor"),
-		Scheme: mgr.GetScheme(),
-	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "DatadogMonitor")
-		os.Exit(1)
-	}
+	// if err = (&controllers.DatadogMonitorReconciler{
+	// 	Client: mgr.GetClient(),
+	// 	Log:    ctrl.Log.WithName("controllers").WithName("DatadogMonitor"),
+	// 	Scheme: mgr.GetScheme(),
+	// }).SetupWithManager(mgr); err != nil {
+	// 	setupLog.Error(err, "unable to create controller", "controller", "DatadogMonitor")
+	// 	os.Exit(1)
+	// }
 	// +kubebuilder:scaffold:builder
 
 	setupLog.Info("starting manager")
